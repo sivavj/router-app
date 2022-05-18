@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Outlet, NavLink } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return ( <
+        div className = "App" >
+        <
+        h1 > Book Keeper < /h1> <
+        nav style = {
+            {
+                borderBottom: "solid 1px",
+                paddingBottom: "1rem",
+            }
+        } >
+        <
+        NavLink style = {
+            ({ isActive }) => {
+                return {
+                    padding: "5px 10px",
+                    textDecoration: "none",
+                    color: isActive ? "white" : "royalblue",
+                    background: isActive ? "green" : "white",
+                };
+            }
+        }
+        to = "/invoices" >
+        Invoices <
+        /NavLink>{" "} |
+        { " " } <
+        NavLink style = {
+            ({ isActive }) => {
+                return {
+                    padding: "5px 10px",
+                    textDecoration: "none",
+                    color: isActive ? "white" : "royalblue",
+                    background: isActive ? "green" : "white",
+                };
+            }
+        }
+        to = "/expenses" >
+        Expenses <
+        /NavLink> <
+        /nav> <
+        Outlet / >
+        <
+        /div>
+    );
 }
 
 export default App;
